@@ -1,2 +1,1 @@
-# Expense-tracker
-simple html,css
+# Expensetracker

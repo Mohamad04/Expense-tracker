@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="description" content="Welecome to My Website" />
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+
+    <div id="back"></div>
+    <div class="star-1 stars"></div>
+    <div class="star-2 stars"></div>
+    <div class="star-3 stars"></div>
+
+    <div class="container">
+
+        <h1>Expense Tracker</h1>
+        <p class="text">Your Balance <br /> <span id="balance">$0.00</span></p>
+
+        <div class="container2">
+            <div class="money">
+                <p>Income</p>
+                <span id="money-income">$0.00</span>
+            </div>
+            <div class="vertical"></div>
+            <div clas="money">
+                <p>Expenses</p>
+                <span id="money-expense">$0.00</span>
+            </div>
+        </div>
+
+
+        <div>
+            <h2 class="history" id="history">History</h2>
+            <hr />
+            <ul id="list">
+            </ul>
+        </div>
+
+
+        <div>
+            <h3 class="history">Add new transaction</h3>
+            <hr />
+        </div>
+
+        <div class="form">
+            <label>
+                <p>Text</p>
+                <input type="text" name="income-or-expense" id="text" placeholder="Enter text.." />
+            </label>
+            <label>
+                <p>Amount <br> (negative-expense,positive-income)</p>
+                <input type="text" name="amount" id="input" placeholder="Enter amount..." />
+            </label>
+            <button id="transaction">Add transaction</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
