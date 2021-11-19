@@ -1,200 +1,301 @@
 * {
-    box-sizing: border-box;
-    font-family: Arial, Tahoma;
+  box-sizing: border-box;
+  font-family: Arial, Tahoma;
 }
 
-
-.stars {
-    background-color: rgba(184, 191, 245, 0.993);
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    animation-iteration-count: infinite;
-    z-index:3;
-    position: absolute;
-  }
-
-  .star-1 {
-    margin-top: 5%;
-    margin-left: 90%;
-    animation-duration: 1s;
-    animation-name: twinkle;
-  }
-
-  .star-2 {
-    margin-top: 40%;
-    margin-left: 30%;
-    animation-duration: 0.9s;
-    animation-name: twinkle;
-  }
-
-  .star-3 {
-    margin-top: 10%;
-    margin-left: 40%;
-    animation-duration: 0.8s;
-    animation-name: twinkle;
-  }
-
-
-
-  @keyframes twinkle {
-    20% {
-      transform: scale(0.5);
-      opacity: 0.5;
-    }
-  }
-
-  #back {
-    z-index:1;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
-  }
-
-/*         */
 p {
-    font-weight: bold;
-    color:rgb(8, 173, 250);
+  font-weight: bold;
 }
 
 body {
-    display: flex;
-    min-height: 500px;
-    justify-content: center;
-    width: 90%;
+  min-height: 500px;
+  justify-content: center;
 }
 
-.container {
-    z-index: 2;
-    position: absolute;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
+.income,
+.expense {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.income p,
+.income span {
+  color: rgb(3, 90, 3);
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
+.expense p,
+.expense span {
+  color: rgb(161, 55, 55);
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
+.income .css-chart {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  height: var(--widget-size);
+  margin: 5em 15em 1em 9em;
+  padding: 0;
+  position: relative;
+  width: var(--widget-size);
+}
+
+.makeItDisappear {
+  display: none;
+}
+
+.income .line-chart {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.income .data-point {
+  background-color: white;
+  border: 2px solid rgb(84, 209, 80);
+  border-radius: 50%;
+  bottom: calc(var(--y) - 8px);
+  height: 12px;
+  left: calc(var(--x) - 8px);
+  position: absolute;
+  width: 12px;
+  z-index: 1;
+}
+
+.income .line-segment {
+  background-color: rgb(30, 255, 0);
+  bottom: var(--y);
+  height: 3px;
+  left: var(--x);
+  position: absolute;
+  transform: rotate(calc(var(--angle) * 1deg));
+  transform-origin: left bottom;
+  width: calc(var(--hypotenuse) * 1px);
+}
+
+.expense .css-chart {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+
+  height: var(--widget-size);
+  margin: 5em 15em 1em 11em;
+  padding: 0;
+  position: relative;
+  width: var(--widget-size);
+}
+
+.expense .line-chart {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.expense .data-point {
+  background-color: white;
+  border: 2px solid rgb(248, 112, 112);
+  border-radius: 50%;
+  bottom: calc(var(--y) - 8px);
+  height: 12px;
+  left: calc(var(--x) - 8px);
+  position: absolute;
+  width: 12px;
+  z-index: 1;
+}
+
+.expense .line-segment {
+  background-color: rgb(255, 0, 0);
+  bottom: var(--y);
+  height: 3px;
+  left: var(--x);
+  position: absolute;
+  transform: rotate(calc(var(--angle) * 1deg));
+  transform-origin: left bottom;
+  width: calc(var(--hypotenuse) * 1px);
+}
+
+#income-button {
+  width: 30%;
+  padding: 1rem 2rem;
+  margin: auto;
+  background: rgb(59, 121, 59);
+  color: white;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#expense-button {
+  width: 30%;
+  padding: 1rem 2rem;
+  margin: auto;
+  background: rgb(87, 39, 39);
+  color: white;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.app {
+  min-width: 400px;
+}
 
 h1 {
-    text-align: center;
-    font-size: 23px;
-    margin-bottom: 25px;
-    color:burlywood;
+  text-align: center;
+  font-size: 50px;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  margin-bottom: 25px;
+  margin-top: 40px;
+  color: #fa0895;
 }
 
 .text {
-    text-transform: uppercase;
-    font-size: 14px;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 #balance {
-    font-size: 25px;
-    margin: 0 0 0 7px;
+  margin-left: 10rem;
+  font-size: 40px;
+  text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  color: #2008fa;
 }
-
 
 .container2 {
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-    padding: 5px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-    box-shadow: 1px 0.9px 2px grey;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  padding: 5px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  box-shadow: 1px 0.9px 2px grey;
 }
 
-
-.container2>div {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 40%;
-    text-align: center;
+.container2 > div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 40%;
+  text-align: center;
 }
 
 .container2 .vertical {
-    border-left: 1px solid grey;
-    height: 50px;
-    position: absolute;
-    left: 45%;
+  border-left: 1px solid grey;
+  height: 50px;
+  position: absolute;
+  left: 45%;
 }
 
-
-.container2>div>p {
-    font-size: 15px;
-    margin-top: 2px;
-    margin-bottom: 5px;
-    padding: 5px;
-    text-transform: uppercase;
+.container2 > div > p {
+  font-size: 15px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  padding: 5px;
+  text-transform: uppercase;
 }
 
-.container2>div>span {
-    margin: 5px;
+.container2 > div > span {
+  margin: 5px;
 }
-
-.container2 #money-income {
-    color: green;
-    font-weight: bold;
-}
-
-.container2 #money-expense {
-    color: red;
-    font-weight: bold;
-}
-
 
 .history {
-    font-size: 16px;
-    margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: rgb(4, 92, 99);
+  text-align: center;
+}
+
+.new-transaction {
+  margin-top: 35px;
 }
 
 li {
-    list-style: none;
-    border-style: none;
-    background-color: white;
-    position: relative;
-    padding: 5px;
-    margin: 12px;
-  }
-  
-  .delete-btn {
-    background-color: red;
-    position: absolute;
-    right: 245px;
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 0.4s;
-    transition-timing-function: ease;
-  }
-  
-  li:hover .delete-btn {
-    opacity: 1;
-  }
+  list-style: none;
+  border-style: none;
+  background-color: white;
+  position: relative;
+  padding: 5px;
+  margin: 12px;
+}
 
-  li .text {
-      color:blue;
-      position:absolute;
-      left:100%;
-  }
+.delete-btn {
+  background-color: red;
+  position: absolute;
+  right: 245px;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+}
 
+li:hover .delete-btn {
+  opacity: 1;
+}
 
+li .text {
+  position: absolute;
+  left: 100%;
+}
+
+.form {
+  border: 1px solid black;
+  padding: 0.4rem 0.8rem;
+}
 
 .form input {
-    background-color: #FFF;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+  background-color: #fff;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 .form input:focus {
-    border: 2px solid rgb(18, 2, 252);
-    border-radius: 4px;
+  border: 2px solid rgb(214, 252, 2);
+  border-radius: 4px;
 }
 
 #transaction {
-    margin-top: 2px;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: rgb(20, 33, 153);
-    color: white;
+  margin-top: 2px;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: rgb(255, 251, 0);
+  color: #750647;
+}
+
+@media only screen and (min-width: 801px) {
+  .grid-container .income,
+  .grid-container .expense {
+    visibility: visible;
+  }
+  .app .container2 {
+    display: none;
+  }
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  .grid-container .income,
+  .grid-container .expense {
+    visibility: hidden;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .grid-container .app {
+    margin: 0 auto;
+  }
+
+  .app .container2 {
+    display: block;
+  }
 }

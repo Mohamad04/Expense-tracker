@@ -1,1 +1,3 @@
 # Expensetracker
+
+calculate your expanses

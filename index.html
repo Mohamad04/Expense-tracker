@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="description" content="Welecome to My Website" />
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="income">
+            <p>Income</p>
+            <span id="money-income">$ 0.00</span>
+
+            <figure class="css-chart makeItDisappear" id="css-chart" style="--widget-size: 40%">
+                <ul class="line-chart" id="line-chart-1"></ul>
+            </figure>
+
+            <button id="income-button" disabled>Show chart</button>
+        </div>
+
+        <div class="app">
+            <h1>Expense Tracker</h1>
+            <p class="text">Your Balance</p>
+
+            <span id="balance"></span>
+
+            <div class="container2">
+                <div class="money">
+                    <p>Income</p>
+                    <span id="money-income">$0.00</span>
+                </div>
+                <div class="vertical"></div>
+                <div clas="money">
+                    <p>Expenses</p>
+                    <span id="money-expense">$0.00</span>
+                </div>
+            </div>
+            <div>
+                <h2 class="history" id="history">History</h2>
+                <hr />
+                <ul id="list"></ul>
+            </div>
+
+            <div class="new-transaction">
+                <h3 class="history">Add new transaction</h3>
+            </div>
+
+            <div class="form">
+                <label>
+                    <p>Text</p>
+                    <input type="text" name="income-or-expense" id="text" placeholder="Enter text.." />
+                </label>
+                <label>
+                    <p>
+                        Amount <br />
+                        (negative-expense,positive-income)
+                    </p>
+                    <input type="number" name="amount" id="input" placeholder="Enter amount..." />
+                </label>
+                <button id="transaction">Add transaction</button>
+            </div>
+        </div>
+
+        <div class="expense">
+            <p>Expenses</p>
+            <span id="money-expense2">$ 0.00</span>
+
+            <figure class="css-chart makeItDisappear" id="css-chart2" style="--widget-size: 40%">
+                <ul class="line-chart" id="line-chart-2"></ul>
+            </figure>
+
+            <button id="expense-button" disabled>Show chart</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
